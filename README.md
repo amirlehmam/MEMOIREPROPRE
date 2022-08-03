@@ -1,6 +1,6 @@
 # ASTROTOOL
 
-![ASTROTOOL](https://i.postimg.cc/BZwp3GY2/tartaru.png)
+![astrotool](https://postimg.cc/V0tXhHTz)
 
 ## Preliminary introduction to the subject
 
