@@ -1,6 +1,6 @@
 # ASTROTOOL.py
 
-![astrotool](https://i.postimg.cc/QC4SH2JK/astrotool-logo.png)
+![astrotool](https://i.postimg.cc/vTJgqXQS/astrotool-logo.png)
 
 ## Preliminary introduction to the subject
 
