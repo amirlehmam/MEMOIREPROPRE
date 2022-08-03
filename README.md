@@ -1,6 +1,6 @@
 # ASTROTOOL
 
-[astrotool-logo.png](https://postimg.cc/V0tXhHTz)
+![astrotool-logo.png](https://postimg.cc/V0tXhHTz)
 
 ## Preliminary introduction to the subject
 
