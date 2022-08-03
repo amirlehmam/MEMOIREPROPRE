@@ -1,6 +1,6 @@
 # MEMORY PAPER
 
-![ASTROTOOL](https://i.postimg.cc/R0zGYQP8/giiuiu.png)
+![ASTROTOOL](https://i.postimg.cc/BZwp3GY2/tartaru.png)
 
 ## Preliminary introduction to the subject
 
