@@ -1,5 +1,7 @@
 # MEMORY PAPER
 
+![This is an image](https://ibb.co/52YzGxc)
+
 ## Preliminary introduction to the subject
 
 Me and my colleague being crazy about crypto-currencies and in particular about stock market prices, we have been interested in this field for more than 6 years, and very actively for more than 2 years exactly.
