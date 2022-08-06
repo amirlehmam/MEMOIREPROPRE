@@ -2,6 +2,8 @@
 
 ![astrotool](https://i.postimg.cc/K8ct0KNk/banner.png)
 
+***
+
 ## Preliminary introduction to the subject
 
 Me and my colleague being crazy about crypto-currencies and in particular about stock market prices, we have been interested in this field for more than 6 years, and very actively for more than 2 years exactly.
@@ -12,20 +14,28 @@ Our goal is to obtain about 70 to 80% of valid forecasts, to do this we had to e
 W.D. Gann is known to have been the best trader in the world of his time (from 1910 to 1950~, with a winrate of more than 90% - I invite you to read more about this character), he created a whole panel of methods of his own and his analysis.
 This research took us more than two years (in parallel with our bachelor's degree and currently this DU) to come to our current "level" of understanding on this particular and little known subject.
 
-We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, (https://geometricthinking.com/about-us/ - small biography of our mentor), who helped us enormously and gave us his time and knowledge to put us on the right track for learning the so-called "non-traditional" methods.
-We helped him to create an Excel file (containing macros) named "ASTROTOOL".
-	In the course of this experience, we learned that there is a very particular way to read stock market charts in order to detect geometric supports and resistances. AND ESPECIALLY, we have discovered that there are ways to discern, well in advance (up to more than 10 years in advance), the dates at which market turns (from bullish to bearish, swing low/high, acceleration, etc) are likely to occur. We call these dates ENERGY POINTS (EPs).
+We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, ([Mentor Website](https://geometricthinking.com/about-us/) - small biography of our mentor), who helped us enormously and gave us his time and knowledge to put us on the right track for learning the so-called "non-traditional" methods.
 
-This Excel file highlights future EP dates.  It will not tell which way the market will break, but it will indicate in advance which date to pay particular attention to on a chart for a trading opportunity.
+#### We helped him to create an Excel file (containing macros) named "ASTROTOOL".
 
+* In the course of this experience, we learned that there is a very particular way to read stock market charts in order to detect geometric supports and resistances. AND ESPECIALLY, we have discovered that there are ways to discern, well in advance (up to more than 10 years in advance), the dates at which market turns (from bullish to bearish, swing low/high, acceleration, etc) are likely to occur. We call these dates ENERGY POINTS (EPs).
+
+* This Excel file highlights future EP dates.  It will not tell which way the market will break, but it will indicate in advance which date to pay particular attention to on a chart for a trading opportunity.
 
 The purpose of this Excel file is to create a calendar from several weighted conditions previously established through different matrices based on Astronomical data - that is to say that each "Aspect" of each Planet has different conditions, some are more consequential than others etc., let's say that an opposition (180 degrees) will be more weighted than a Semi-Sextile (at 30 degrees) between two planets etc... to give us an overview of the next most important dates.
 The Excel file contains a lot of data and different methodologies used; I am attaching it to this email so that you have an overview of our global work.
+
 Final global matrices
+
+![img](https://i.postimg.cc/mZN8Sp18/Picture1.png)
  
 ## Final Schedule
+
+![img](https://i.postimg.cc/K8K4Dz8F/Picture2.png)
  
 We backtested this calendar on the Bitcoin chart, over a period from 2017 to the present 2022. Indeed, the set of dates that the Excel file output to us represents more than 85% correlation with the "turning points" of the market... This does not ONLY apply to bitcoin but to all crypto-currencies and all stock indices, stocks, ETFs… 
+
+![img](https://i.postimg.cc/Y0nq1Kch/Picture3.png)
 
 Example on the Bitcoin graph, since January 2021... Each vertical line represents major EPs (Energy Points date), the Astrotool file has as much success to find the "LOW" as the "HIGH" (it has indeed found the date of the "ATH" = the peak of the Bitcoin to one day - November 11, 2021)
 
