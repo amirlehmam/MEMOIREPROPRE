@@ -12,7 +12,7 @@ Our goal is to obtain about 70 to 80% of valid forecasts, to do this we had to e
 W.D. Gann is known to have been the best trader in the world of his time (from 1910 to 1950~, with a winrate of more than 90% - I invite you to read more about this character), he created a whole panel of methods of his own and his analysis.
 This research took us more than two years (in parallel with our bachelor's degree and currently this DU) to come to our current "level" of understanding on this particular and little known subject.
 
-We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, ([Small Biography of our Mentor](https://geometricthinking.com/about-us/)), who helped us enormously and gave us his time and knowledge to put us on the right track for learning the so-called "non-traditional" methods.
+We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, ([Biography our Mentor](https://geometricthinking.com/about-us/)), who helped us enormously and gave us his time and knowledge to put us on the right track for learning the so-called "non-traditional" methods.
 
 #### We helped him to create an Excel file (containing macros) named "ASTROTOOL".
 
