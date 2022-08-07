@@ -33,7 +33,7 @@ We backtested this calendar on the Bitcoin chart, over a period from 2017 to the
 
 Example on the Bitcoin graph, since January 2021... Each vertical line represents major EPs (Energy Points date), the Astrotool file has as much success to find the "LOW" as the "HIGH" (it has indeed found the date of the "ATH" = the peak of the Bitcoin to one day - November 11, 2021)
 
-## The Subject
+## The Subject @ Memory Paper
 
 The challenge of this dissertation is to find a way to link our passions and recent experiences listed above with Data and the whole world of Python (ML, algorithms etc...), to make it a real dissertation problematic in adequacy with our DU year.
 Our ideal subject would be to recreate our entire Excel file "Astrotool" on the Python environment. Astronomical data being very dense and complex, it will be a challenge to process this data on Python in order to make it usable for the creation of the Astrotool calendar on a Jupyter notebook...
