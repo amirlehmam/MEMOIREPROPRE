@@ -12,7 +12,7 @@ Our goal is to obtain about 70 to 80% of valid forecasts, to do this we had to e
 W.D. Gann is known to have been the best trader in the world of his time (from 1910 to 1950~, with a winrate of more than 90% - I invite you to read more about this character), he created a whole panel of methods of his own and his analysis.
 This research took us more than two years (in parallel with our bachelor's degree and currently this DU) to come to our current "level" of understanding on this particular and little known subject.
 
-We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, ([Small Biography of our Mentor](https://geometricthinking.com/about-us/)), who helped us enormously and gave us his time and knowledge to put us on the right track for learning the so-called "non-traditional" methods.
+We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, ([Biography of Jim](https://geometricthinking.com/about-us/)), who helped us enormously and gave us his time and knowledge to put us on the right track for learning the so-called "non-traditional" methods.
 
 #### We helped him to create an Excel file (containing macros) named "ASTROTOOL".
 
@@ -22,10 +22,6 @@ We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, (
 
 The purpose of this Excel file is to create a calendar from several weighted conditions previously established through different matrices based on Astronomical data - that is to say that each "Aspect" of each Planet has different conditions, some are more consequential than others etc., let's say that an opposition (180 degrees) will be more weighted than a Semi-Sextile (at 30 degrees) between two planets etc... to give us an overview of the next most important dates.
 The Excel file contains a lot of data and different methodologies used; I am attaching it to this email so that you have an overview of our global work.
-
-Final global matrices
-
-![img](https://i.postimg.cc/mZN8Sp18/Picture1.png)
  
 ## Final Schedule
 
@@ -37,7 +33,7 @@ We backtested this calendar on the Bitcoin chart, over a period from 2017 to the
 
 Example on the Bitcoin graph, since January 2021... Each vertical line represents major EPs (Energy Points date), the Astrotool file has as much success to find the "LOW" as the "HIGH" (it has indeed found the date of the "ATH" = the peak of the Bitcoin to one day - November 11, 2021)
 
-## The Subject
+## The Subject @ Memory Paper
 
 The challenge of this dissertation is to find a way to link our passions and recent experiences listed above with Data and the whole world of Python (ML, algorithms etc...), to make it a real dissertation problematic in adequacy with our DU year.
 Our ideal subject would be to recreate our entire Excel file "Astrotool" on the Python environment. Astronomical data being very dense and complex, it will be a challenge to process this data on Python in order to make it usable for the creation of the Astrotool calendar on a Jupyter notebook...
