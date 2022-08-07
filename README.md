@@ -14,7 +14,7 @@ This research took us more than two years (in parallel with our bachelor's degre
 
 We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, ([Biography of Jim](https://geometricthinking.com/about-us/)), who helped us enormously and gave us his time and knowledge to put us on the right track for learning the so-called "non-traditional" methods.
 
-![img](https://i.postimg.cc/BnWX9qXJ/ddd.png)
+![img](https://i.postimg.cc/P54pmg5h/2022-08-07-19-26-03-Window.png)
 
 #### We helped him to create an Excel file (containing macros) named "ASTROTOOL".
 
