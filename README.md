@@ -22,10 +22,6 @@ We were fortunate to meet our mentor, Jim Fredrickson through an acquaintance, (
 
 The purpose of this Excel file is to create a calendar from several weighted conditions previously established through different matrices based on Astronomical data - that is to say that each "Aspect" of each Planet has different conditions, some are more consequential than others etc., let's say that an opposition (180 degrees) will be more weighted than a Semi-Sextile (at 30 degrees) between two planets etc... to give us an overview of the next most important dates.
 The Excel file contains a lot of data and different methodologies used; I am attaching it to this email so that you have an overview of our global work.
-
-Final global matrices
-
-![img](https://i.postimg.cc/mZN8Sp18/Picture1.png)
  
 ## Final Schedule
 
