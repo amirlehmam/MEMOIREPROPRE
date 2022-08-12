@@ -31,7 +31,7 @@ The Excel file contains a lot of data and different methodologies used...
  
 We backtested this calendar on the Bitcoin chart, over a period from 2017 to the present 2022. Indeed, the set of dates that the Excel file output to us represents more than 85% correlation with the "turning points" of the market... This does not ONLY apply to bitcoin but to all crypto-currencies and all stock indices, stocks, ETFs… 
 
-![img](https://i.postimg.cc/Y0nq1Kch/Picture3.png)
+![img](https://i.postimg.cc/XvStyvj4/ASTROTOOL-EP-DATES.png)
 
 Example on the Bitcoin graph, since January 2021... Each vertical line represents major EPs (Energy Points date), the Astrotool file has as much success to find the "LOW" as the "HIGH" (it has indeed found the date of the "ATH" = the peak of the Bitcoin to one day - November 11, 2021)
 
