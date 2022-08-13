@@ -27,7 +27,7 @@ The Excel file contains a lot of data and different methodologies used...
  
 ## Final Schedule
 
-![img](https://i.postimg.cc/K8K4Dz8F/Picture2.png)
+![img](https://i.postimg.cc/qMrKcNJR/dates.png)
  
 We backtested this calendar on the Bitcoin chart, over a period from 2017 to the present 2022. Indeed, the set of dates that the Excel file output to us represents more than 85% correlation with the "turning points" of the market... This does not ONLY apply to bitcoin but to all crypto-currencies and all stock indices, stocks, ETFs… 
 
