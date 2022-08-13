@@ -27,7 +27,7 @@ The Excel file contains a lot of data and different methodologies used...
  
 ## Final Schedule
 
-![img](https://i.postimg.cc/K8K4Dz8F/Picture2.png)
+![img](https://i.postimg.cc/qMrKcNJR/dates.png)
  
 We backtested this calendar on the Bitcoin chart, over a period from 2017 to the present 2022. Indeed, the set of dates that the Excel file output to us represents more than 85% correlation with the "turning points" of the market... This does not ONLY apply to bitcoin but to all crypto-currencies and all stock indices, stocks, ETFs… 
 
@@ -40,6 +40,7 @@ Example on the Bitcoin graph, since January 2021... Each vertical line represent
 The challenge of this dissertation is to find a way to link our passions and recent experiences listed above with Data and the whole world of Python (ML, algorithms etc...), to make it a real dissertation problematic in adequacy with our DU year.
 Our ideal subject would be to recreate our entire Excel file "Astrotool" on the Python environment. Astronomical data being very dense and complex, it will be a challenge to process this data on Python in order to make it usable for the creation of the Astrotool calendar on a Jupyter notebook...
 Then, we would like to add a Machine Learning logic to it to create an infinite learning and find new possibilities to improve Astrotool.
+
 Finally, the goal would be to create a trading algorithm that would be based on the different methods and signals that "Astrotool" would give us and also added the same logic of Machine Learning so that this algorithm learns from these errors and develop over time.
 The vision of the algorithm that we have is relatively simple, it must give at a precise date the projected trend (according to our previous research tracks) as well as issue a buy or sell position, depending on the analysis made.
 This algo is rather on the category of "Swing Trade" as opposed to the high frequency algorithm which is based on the very short term. Our algo is rather interested in the "medium/long" term in order to issue buy and sell positions at the most opportune moments (Swing High/Low)...
