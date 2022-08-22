@@ -1,17 +1,8 @@
-from datetime import datetime
 import pandas as pd
 import numpy as np
-
-import sklearn
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 from datetime import date
 from datetime import datetime
-
 import plotly.express as px
-
 import os
 
 # Retrieve the path to the current folders
