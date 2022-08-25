@@ -35,34 +35,11 @@ twoday = datetime.strftime(datetime.now(), "%Y/%m/%d")
 t = pd.to_datetime(twoday)
 t = pd.to_datetime(t)
 
-NatSq = NatSq.copy()
-NatSq = NatSq.drop(['Type'], axis=1)
+c = fluchart.copy()
 
-# Match every dates to cols
-
-for col in NatSq.columns[1:]:
-    NatSq[col] = ((pd.to_datetime(NatSq['Date']) + pd.to_timedelta(f'{col} days'))
-               .dt.strftime('%Y/%m/%d'))
-
-dx = NatSq[1:].unstack().value_counts(ascending=False)
-
-dx = pd.DataFrame(dx, columns=['Hit'])
-
-dx = dx.reset_index()
-dx = dx.rename_axis('E', axis=1)
-dx.columns = dx.columns.str.replace('index', 'Date')
-dx = dx.rename_axis(None, axis=1)
-
-dx['Date'] = pd.to_datetime(dx['Date'])  
-
-start_date = t  - timedelta(days = 5)
-end_date = t + timedelta(days = 120)
-
-mask = (dx['Date'] > start_date) & (dx['Date'] <= end_date)
-NatSq_hits = dx.loc[mask]
-NatSq_hits = NatSq_hits.sort_values(by=['Date'])
-
-print(NatSq_hits.head(5))
-
-fig = px.bar(NatSq_hits, x='Date', y='Hit')
+fig = px.bar(c, x='Date', y='EP',
+             hover_data=['Date', 'EP'], color='EP', color_continuous_scale=px.colors.sequential.Teal,
+             height=618)
+             
+fig.update_traces(width=1)
 fig.show()
