@@ -47,4 +47,32 @@ sq9g = op1.astype('timedelta64[D]') + d.to_numpy().reshape(-1, 1)
 
 sq9g = pd.DataFrame(sq9g, columns=['45', '90', '135', '180', '225','270','315'])
 
-print(sq9g)
+adpod = sq9g.copy()
+
+dzea2 = adpod[1:].unstack().value_counts(ascending=True)
+
+dzea2 = pd.DataFrame(dzea2, columns=['Hit'])
+
+dzea2 = dzea2.reset_index()
+dzea2 = dzea2.rename_axis('E', axis=1)
+dzea2.columns = dzea2.columns.str.replace('index', 'Date')
+dzea2 = dzea2.rename_axis(None, axis=1)
+
+dzea2 = dzea2.sort_values(by=['Date'], ascending=True)
+
+dzea2['Date'] = dzea2['Date'].apply(pd.to_datetime)
+
+start_date = t  - timedelta(days = 5)
+end_date = t + timedelta(days = 120)
+
+mask = (dzea2['Date'] > start_date) & (dzea2['Date'] <= end_date)
+dzea2 = dzea2.loc[mask]
+
+# addp_hits.head(50)
+
+ggggg = dzea2.sort_values(by=['Date'], ascending=True)
+
+print(ggggg.head(10))
+
+fig = px.bar(ggggg, x='Date', y='Hit')
+fig.show()
