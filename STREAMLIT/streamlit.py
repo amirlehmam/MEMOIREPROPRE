@@ -37,25 +37,58 @@ m4 = TrTr.copy()
 m5 = addPrice.copy()
 m6 = Fib.copy()
 
-o1,o2,o3,o4,o5,o6 = st.tabs(["Nat", "Spi", "TrNa", "TrTr", "addPrice", "Fib"])
+o1,o2,o3,o4,o5,o6 = st.tabs(["Natural Square", "Spiral", "TrNa", "TrTr", "addPrice", "Fib"])
 
 with o1:
-    st.dataframe(m1.style.background_gradient(cmap='Blues'))
+    col1, col2 = st.columns([1,3.33])
 
-    fig1 = px.bar(m1, x='Date', y='Hit')
-    st.plotly_chart(fig1, use_container_width=True)
+    with col1:
+        st.dataframe(m1.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig1 = px.bar(m1, x='Date', y='Hit')
+        st.plotly_chart(fig1, use_container_width=True)
 
 with o2:
-    st.dataframe(m2.style.background_gradient(cmap='Blues'))
+    col1, col2 = st.columns([1,3.33])
+
+    with col1:
+        st.dataframe(m2.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig2 = px.bar(m2, x='Date', y='Hit')
+        st.plotly_chart(fig2, use_container_width=True)
 
 with o3:
-    st.dataframe(m3.style.background_gradient(cmap='Blues'))
+    col1, col2 = st.columns([1,2.9])
+
+    with col1:
+        st.dataframe(m3.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig3 = px.bar(m3, x='Date', y='Points')
+        st.plotly_chart(fig3, use_container_width=True)
 
 with o4:
-    st.dataframe(m4.style.background_gradient(cmap='Blues'))
+    col1, col2 = st.columns([1,2.9])
+
+    with col1:
+        st.dataframe(m4.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig4 = px.bar(m4, x='Date', y='Points')
+        st.plotly_chart(fig4, use_container_width=True)
 
 with o5:
-    st.dataframe(m5.style.background_gradient(cmap='Blues'))
+    col1, col2 = st.columns([1,3.33])
+
+    with col1:
+        st.dataframe(m5.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig5 = px.bar(m5, x='Date', y='Hit')
+        st.plotly_chart(fig5, use_container_width=True)
 
 with o6:
-    st.dataframe(m6.style.background_gradient(cmap='Blues'))
+    col1, col2 = st.columns([1,3.33])
+
+    with col1:
+        st.dataframe(m6.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig6 = px.bar(m6, x='Date', y='Hit')
+        st.plotly_chart(fig6, use_container_width=True)
