@@ -34,15 +34,28 @@ m1 = Nat.copy()
 m2 = Spi.copy()
 m3 = TrNa.copy()
 m4 = TrTr.copy()
+m5 = addPrice.copy()
+m6 = Fib.copy()
 
-o1,o2,o3,o4 = st.tabs(["Nat","Spi","TrNa","TrTr"])
+o1,o2,o3,o4,o5,o6 = st.tabs(["Nat", "Spi", "TrNa", "TrTr", "addPrice", "Fib"])
+
 with o1:
     st.dataframe(m1.style.background_gradient(cmap='Blues'))
+
     fig1 = px.bar(m1, x='Date', y='Hit')
     st.plotly_chart(fig1, use_container_width=True)
+
 with o2:
     st.dataframe(m2.style.background_gradient(cmap='Blues'))
+
 with o3:
     st.dataframe(m3.style.background_gradient(cmap='Blues'))
+
 with o4:
     st.dataframe(m4.style.background_gradient(cmap='Blues'))
+
+with o5:
+    st.dataframe(m5.style.background_gradient(cmap='Blues'))
+
+with o6:
+    st.dataframe(m6.style.background_gradient(cmap='Blues'))
