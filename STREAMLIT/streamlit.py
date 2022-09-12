@@ -33,18 +33,59 @@ st.set_page_config(page_title="ASTROTOOL")
 logo = Image.open('logo.png')
 st.image(logo)
 
-#st.markdown('**ASTROTOOL**')
+#st.markdown("**RESERVED ADMIN ACCESS**")
 
 # ONGLETS METHODS
 
-m1 = Nat.copy()
+m1 = NatSq.copy()
 m2 = Spi.copy()
 m3 = TrTr.copy()
 m4 = TrNa.copy()
 m5 = addPrice.copy()
 m6 = Fib.copy()
+m7 = FutureDate.copy()
+m8 = Mult.copy()
+m9 = Natal.copy()
+m10 = PriceTime.copy()
+m11 = Retro.copy()
+m12 = Sq9.copy()
 
-o1,o2,o3,o4,o5,o6 = st.tabs(["NatSq", "Spiral", "TrTr", "TrNa", "addPrice", "Fib"])
+mn1 = aspects_h_tr.copy()
+mn2 = aspects_h_na.copy()
+mn3 = aspects_g_tr.copy()
+mn4 = aspects_g_na.copy()
+mn5 = dec_lat.copy()
+mn6 = retro_asp.copy()
+mn7 = tools.copy()
+
+o,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12 = st.tabs(["Main", "NatSq", "Spiral", "TrTr", "TrNa", "addPrice", "Fib", "FutDates", "Mult", "Natal", "PriceTime", "Retro", "Sq9"])
+
+with o:
+    col1, col2 = st.columns([1,1])
+
+    with col1:
+        st.dataframe(mn1.style.background_gradient(cmap='Blues'))
+    with col2:
+        st.dataframe(mn2.style.background_gradient(cmap='Blues'))
+
+    col3, col4 = st.columns([1,1])
+
+    with col1:
+        st.dataframe(mn3.style.background_gradient(cmap='Blues'))
+    with col2:
+        st.dataframe(mn4.style.background_gradient(cmap='Blues'))
+
+    col5, col6 = st.columns([1,1])
+
+    with col1:
+        st.dataframe(mn5.style.background_gradient(cmap='Blues'))
+    with col2:
+        st.dataframe(mn6.style.background_gradient(cmap='Blues'))
+
+    col7, col8 = st.columns([12,0.2])
+    with col7:
+        st.dataframe(mn7.style.background_gradient(cmap='Blues'))
+
 
 with o1:
     col1, col2 = st.columns([1,3.33])
@@ -104,3 +145,64 @@ with o6:
         fig6 = px.bar(m6, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
                  title="Fib | Hits Chart")
         st.plotly_chart(fig6, use_container_width=True)
+
+with o7:
+    col1, col2 = st.columns([2,3.80])
+
+    with col1:
+        st.dataframe(m7.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig7 = px.bar(m7, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                 title="FutDates | Hits Chart")
+        st.plotly_chart(fig7, use_container_width=True)
+
+with o8:
+    col1, col2 = st.columns([1,3.33])
+
+    with col1:
+        st.dataframe(m8.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig8 = px.bar(m8, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                 title="Mult | Hits Chart")
+        st.plotly_chart(fig8, use_container_width=True)
+
+with o9:
+    col1, col2 = st.columns([1,3.33])
+
+    with col1:
+        st.dataframe(m9.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig9 = px.bar(m9, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                 title="Natal | Hits Chart")
+        st.plotly_chart(fig9, use_container_width=True)
+
+with o10:
+    col1, col2 = st.columns([1,3.33])
+
+    with col1:
+        st.dataframe(m10.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig10 = px.bar(m10, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                 title="PriceTime | Hits Chart")
+        st.plotly_chart(fig10, use_container_width=True)
+
+with o11:
+    col1, col2 = st.columns([1,2.8])
+
+    with col1:
+        st.dataframe(m11.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig11 = px.bar(m11, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                 title="Retro | Hits Chart")
+        st.plotly_chart(fig11, use_container_width=True)
+
+with o12:
+    col1, col2 = st.columns([1,3.33])
+
+    with col1:
+        st.dataframe(m12.style.background_gradient(cmap='Blues'))
+    with col2:
+        fig12 = px.bar(m12, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                 title="Sq9 | Hits Chart")
+        st.plotly_chart(fig12, use_container_width=True)
+
