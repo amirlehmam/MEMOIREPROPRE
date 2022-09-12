@@ -2,7 +2,7 @@
 
 import pandas as pd 
 import plotly.express as px
-import streamlit as st 
+import streamlit as st
 import numpy as np
 from datetime import date
 from datetime import datetime
@@ -58,7 +58,8 @@ file_path = Path(__file__).parent / "hashed_pw.pkl"
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
-authenticator = stauth.Authenticate(names, usernames, hashed_passwords, "app_home", "abcdefg", cookie_expiry_days=3)
+authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
+    "sales_dashboard", "abcdef", cookie_expiry_days=30)
 
 names, authentication_status, username = authenticator.login("Login", "main")
 
@@ -70,10 +71,7 @@ if authentication_status == None:
 
 if authentication_status:
 
-    #st.markdown("**RESERVED ADMIN ACCESS**")
-
-    # DATA IMPORTED
-    st.title(f"Welcome to AstroTool {name}!")
+    st.markdown(f"Welcome {names}!")
 
     m = fluchart.copy()
 
@@ -263,4 +261,4 @@ if authentication_status:
                     title="Sq9 | Hits Chart")
             st.plotly_chart(fig12, use_container_width=True)
 
-    authenticator.logout("Logout", "Main")
+    authenticator.logout("Logout", "main")
