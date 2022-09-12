@@ -17,7 +17,7 @@ import os
 current_path = os.getcwd()
 
 # Get the path to the csv file folder - in this case the 'data' file
-csv_path = os.path.join(current_path, 'data\\test')
+csv_path = os.path.join(current_path, 'data//test')
 
 # A EXPLIQUER ICI
 for file in os.listdir(csv_path):
