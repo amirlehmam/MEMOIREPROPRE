@@ -28,14 +28,27 @@ t = pd.to_datetime(t)
 
 today = datetime.strftime(datetime.now(), "%d/%m/%Y")
 
+# LOGO
 st.set_page_config(page_title="ASTROTOOL")
-
 logo = Image.open('logo.png')
-st.image(logo)
+
+col1, col2, col3 = st.columns([5, 5, 2])
+
+with col1:
+    st.write(' ')
+
+with col2:
+    st.image(logo)
+
+with col3:
+    st.write(' ')
+
 
 #st.markdown("**RESERVED ADMIN ACCESS**")
 
-# ONGLETS METHODS
+# DATA IMPORTED
+
+m = fluchart.copy()
 
 m1 = NatSq.copy()
 m2 = Spi.copy()
@@ -56,36 +69,53 @@ mn3 = aspects_g_tr.copy()
 mn4 = aspects_g_na.copy()
 mn5 = dec_lat.copy()
 mn6 = retro_asp.copy()
+mn6.fillna(' ', inplace=True)
 mn7 = tools.copy()
+mn7.fillna(' ', inplace=True)
 
-o,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12 = st.tabs(["Main", "NatSq", "Spiral", "TrTr", "TrNa", "addPrice", "Fib", "FutDates", "Mult", "Natal", "PriceTime", "Retro", "Sq9"])
+# ONGLETS
 
-with o:
+main,chart,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12 = st.tabs(["Main", "Chart", "NatSq", "Spiral", "TrTr", "TrNa", "addPrice", "Fib", "FutDates", "Mult", "Natal", "PriceTime", "Retro", "Sq9"])
+
+with main:
+
+    st.markdown("**Helio Aspects TrTr & TrNa**")
     col1, col2 = st.columns([1,1])
 
     with col1:
         st.dataframe(mn1.style.background_gradient(cmap='Blues'))
+
     with col2:
         st.dataframe(mn2.style.background_gradient(cmap='Blues'))
 
+    st.markdown("**Geo Aspects TrTr & TrNa**")
     col3, col4 = st.columns([1,1])
 
-    with col1:
+    with col3:
         st.dataframe(mn3.style.background_gradient(cmap='Blues'))
-    with col2:
+    with col4:
         st.dataframe(mn4.style.background_gradient(cmap='Blues'))
 
-    col5, col6 = st.columns([1,1])
+    st.markdown("**Retro Aspects**")
+    col5, col9 = st.columns([12,0.2])
 
-    with col1:
-        st.dataframe(mn5.style.background_gradient(cmap='Blues'))
-    with col2:
+    with col5:
         st.dataframe(mn6.style.background_gradient(cmap='Blues'))
 
+    st.markdown("**Tools**")
     col7, col8 = st.columns([12,0.2])
     with col7:
         st.dataframe(mn7.style.background_gradient(cmap='Blues'))
 
+    st.markdown("**Declination/Latitude**")
+    col6, col10= st.columns([1,1])
+    with col6:
+        st.dataframe(mn5.style.background_gradient(cmap='Blues'))
+
+with chart:
+    fig0 = px.bar(m, x='Date', y='EP', color='EP', color_continuous_scale=px.colors.sequential.Cividis, title="Energy Points (EP) Chart for next 3 months",
+            height=500, width=3200)
+    st.plotly_chart(fig0, use_container_width=True)
 
 with o1:
     col1, col2 = st.columns([1,3.33])
