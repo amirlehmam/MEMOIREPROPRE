@@ -7,8 +7,12 @@ import numpy as np
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
+import pickle 
+from pathlib import Path
+import streamlit_authenticator as stauth
 from PIL import Image
 import os
+
 
 # RECUP LA DATA
 # Retrieve the path to the current folders
@@ -43,196 +47,220 @@ with col2:
 with col3:
     st.write(' ')
 
+# --- USER AUTHENTIFICATION ---
 
-#st.markdown("**RESERVED ADMIN ACCESS**")
+names = ["Amir Lehmam", "Sachith Galbokka"]
+usernames = ["AL", "SG"]
 
-# DATA IMPORTED
+# load hashed passwords
 
-m = fluchart.copy()
+file_path = Path(__file__).parent / "hashed_pw.pkl"
+with file_path.open("rb") as file:
+    hashed_passwords = pickle.load(file)
 
-m1 = NatSq.copy()
-m2 = Spi.copy()
-m3 = TrTr.copy()
-m4 = TrNa.copy()
-m5 = addPrice.copy()
-m6 = Fib.copy()
-m7 = FutureDate.copy()
-m8 = Mult.copy()
-m9 = Natal.copy()
-m10 = PriceTime.copy()
-m11 = Retro.copy()
-m12 = Sq9.copy()
+authenticator = stauth.Authenticate(names, usernames, hashed_passwords, "app_home", "abcdef", cookie_expiry_days=3)
 
-mn1 = aspects_h_tr.copy()
-mn2 = aspects_h_na.copy()
-mn3 = aspects_g_tr.copy()
-mn4 = aspects_g_na.copy()
-mn5 = dec_lat.copy()
-mn6 = retro_asp.copy()
-mn6.fillna(' ', inplace=True)
-mn7 = tools.copy()
-mn7.fillna(' ', inplace=True)
+names, authentication_status, username = authenticator.login("Login", "main")
 
-# ONGLETS
+if authentication_status == False:
+    st.error("Username / Password is incorrect")
 
-main,chart,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12 = st.tabs(["Main", "Chart", "NatSq", "Spiral", "TrTr", "TrNa", "addPrice", "Fib", "FutDates", "Mult", "Natal", "PriceTime", "Retro", "Sq9"])
+if authentication_status == None:
+    st.warning("Please enter your username and password")
 
-with main:
+if authentication_status:
 
-    st.markdown("**Helio Aspects TrTr & TrNa**")
-    col1, col2 = st.columns([1,1])
+    #st.markdown("**RESERVED ADMIN ACCESS**")
 
-    with col1:
-        st.dataframe(mn1.style.background_gradient(cmap='Blues'))
+    # DATA IMPORTED
+    st.title(f"Welcome to AstroTool {name}!")
 
-    with col2:
-        st.dataframe(mn2.style.background_gradient(cmap='Blues'))
+    m = fluchart.copy()
 
-    st.markdown("**Geo Aspects TrTr & TrNa**")
-    col3, col4 = st.columns([1,1])
+    m1 = NatSq.copy()
+    m2 = Spi.copy()
+    m3 = TrTr.copy()
+    m4 = TrNa.copy()
+    m5 = addPrice.copy()
+    m6 = Fib.copy()
+    m7 = FutureDate.copy()
+    m8 = Mult.copy()
+    m9 = Natal.copy()
+    m10 = PriceTime.copy()
+    m11 = Retro.copy()
+    m12 = Sq9.copy()
 
-    with col3:
-        st.dataframe(mn3.style.background_gradient(cmap='Blues'))
-    with col4:
-        st.dataframe(mn4.style.background_gradient(cmap='Blues'))
+    mn1 = aspects_h_tr.copy()
+    mn2 = aspects_h_na.copy()
+    mn3 = aspects_g_tr.copy()
+    mn4 = aspects_g_na.copy()
+    mn5 = dec_lat.copy()
+    mn6 = retro_asp.copy()
+    mn6.fillna(' ', inplace=True)
+    mn7 = tools.copy()
+    mn7.fillna(' ', inplace=True)
 
-    st.markdown("**Retro Aspects**")
-    col5, col9 = st.columns([12,0.2])
+    # ONGLETS
 
-    with col5:
-        st.dataframe(mn6.style.background_gradient(cmap='Blues'))
+    main,chart,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12 = st.tabs(["Main", "Chart", "NatSq", "Spiral", "TrTr", "TrNa", "addPrice", "Fib", "FutDates", "Mult", "Natal", "PriceTime", "Retro", "Sq9"])
 
-    st.markdown("**Tools**")
-    col7, col8 = st.columns([12,0.2])
-    with col7:
-        st.dataframe(mn7.style.background_gradient(cmap='Blues'))
+    with main:
 
-    st.markdown("**Declination/Latitude**")
-    col6, col10= st.columns([1,1])
-    with col6:
-        st.dataframe(mn5.style.background_gradient(cmap='Blues'))
+        st.markdown("**Helio Aspects TrTr & TrNa**")
+        col1, col2 = st.columns([1,1])
 
-with chart:
-    fig0 = px.bar(m, x='Date', y='EP', color='EP', color_continuous_scale=px.colors.sequential.Cividis, title="Energy Points (EP) Chart for next 3 months",
-            height=500, width=3200)
-    st.plotly_chart(fig0, use_container_width=True)
+        with col1:
+            st.dataframe(mn1.style.background_gradient(cmap='Blues'))
 
-with o1:
-    col1, col2 = st.columns([1,3.33])
+        with col2:
+            st.dataframe(mn2.style.background_gradient(cmap='Blues'))
 
-    with col1:
-        st.dataframe(m1.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig1 = px.bar(m1, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="NatSq | Hits Chart")
-        st.plotly_chart(fig1, use_container_width=True)
+        st.markdown("**Geo Aspects TrTr & TrNa**")
+        col3, col4 = st.columns([1,1])
 
-with o2:
-    col1, col2 = st.columns([1,3.33])
+        with col3:
+            st.dataframe(mn3.style.background_gradient(cmap='Blues'))
+        with col4:
+            st.dataframe(mn4.style.background_gradient(cmap='Blues'))
 
-    with col1:
-        st.dataframe(m2.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig2 = px.bar(m2, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="Spiral | Hits Chart")
-        st.plotly_chart(fig2, use_container_width=True)
+        st.markdown("**Retro Aspects**")
+        col5, col9 = st.columns([12,0.2])
 
-with o3:
-    col1, col2 = st.columns([1,2.9])
+        with col5:
+            st.dataframe(mn6.style.background_gradient(cmap='Blues'))
 
-    with col1:
-        st.dataframe(m3.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig3 = px.bar(m3, x='Date', y='Points',
-                 title="TrTr | Hits Chart")
-        st.plotly_chart(fig3, use_container_width=True)
+        st.markdown("**Tools**")
+        col7, col8 = st.columns([12,0.2])
+        with col7:
+            st.dataframe(mn7.style.background_gradient(cmap='Blues'))
 
-with o4:
-    col1, col2 = st.columns([1,2.9])
+        st.markdown("**Declination/Latitude**")
+        col6, col10= st.columns([1,1])
+        with col6:
+            st.dataframe(mn5.style.background_gradient(cmap='Blues'))
 
-    with col1:
-        st.dataframe(m4.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig4 = px.bar(m4, x='Date', y='Points',
-                 title="TrNa | Hits Chart")
-        st.plotly_chart(fig4, use_container_width=True)
+    with chart:
+        fig0 = px.bar(m, x='Date', y='EP', color='EP', color_continuous_scale=px.colors.sequential.Cividis, title="Energy Points (EP) Chart for next 3 months",
+                height=500, width=3200)
+        st.plotly_chart(fig0, use_container_width=True)
 
-with o5:
-    col1, col2 = st.columns([1,3.33])
+    with o1:
+        col1, col2 = st.columns([1,3.33])
 
-    with col1:
-        st.dataframe(m5.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig5 = px.bar(m5, x='Date', y='Hit', title="addPrice | Hits Chart")
-        st.plotly_chart(fig5, use_container_width=True)
+        with col1:
+            st.dataframe(m1.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig1 = px.bar(m1, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="NatSq | Hits Chart")
+            st.plotly_chart(fig1, use_container_width=True)
 
-with o6:
-    col1, col2 = st.columns([1,3.33])
+    with o2:
+        col1, col2 = st.columns([1,3.33])
 
-    with col1:
-        st.dataframe(m6.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig6 = px.bar(m6, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="Fib | Hits Chart")
-        st.plotly_chart(fig6, use_container_width=True)
+        with col1:
+            st.dataframe(m2.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig2 = px.bar(m2, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="Spiral | Hits Chart")
+            st.plotly_chart(fig2, use_container_width=True)
 
-with o7:
-    col1, col2 = st.columns([2,3.80])
+    with o3:
+        col1, col2 = st.columns([1,2.9])
 
-    with col1:
-        st.dataframe(m7.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig7 = px.bar(m7, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="FutDates | Hits Chart")
-        st.plotly_chart(fig7, use_container_width=True)
+        with col1:
+            st.dataframe(m3.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig3 = px.bar(m3, x='Date', y='Points',
+                    title="TrTr | Hits Chart")
+            st.plotly_chart(fig3, use_container_width=True)
 
-with o8:
-    col1, col2 = st.columns([1,3.33])
+    with o4:
+        col1, col2 = st.columns([1,2.9])
 
-    with col1:
-        st.dataframe(m8.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig8 = px.bar(m8, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="Mult | Hits Chart")
-        st.plotly_chart(fig8, use_container_width=True)
+        with col1:
+            st.dataframe(m4.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig4 = px.bar(m4, x='Date', y='Points',
+                    title="TrNa | Hits Chart")
+            st.plotly_chart(fig4, use_container_width=True)
 
-with o9:
-    col1, col2 = st.columns([1,3.33])
+    with o5:
+        col1, col2 = st.columns([1,3.33])
 
-    with col1:
-        st.dataframe(m9.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig9 = px.bar(m9, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="Natal | Hits Chart")
-        st.plotly_chart(fig9, use_container_width=True)
+        with col1:
+            st.dataframe(m5.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig5 = px.bar(m5, x='Date', y='Hit', title="addPrice | Hits Chart")
+            st.plotly_chart(fig5, use_container_width=True)
 
-with o10:
-    col1, col2 = st.columns([1,3.33])
+    with o6:
+        col1, col2 = st.columns([1,3.33])
 
-    with col1:
-        st.dataframe(m10.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig10 = px.bar(m10, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="PriceTime | Hits Chart")
-        st.plotly_chart(fig10, use_container_width=True)
+        with col1:
+            st.dataframe(m6.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig6 = px.bar(m6, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="Fib | Hits Chart")
+            st.plotly_chart(fig6, use_container_width=True)
 
-with o11:
-    col1, col2 = st.columns([1,2.8])
+    with o7:
+        col1, col2 = st.columns([2,3.80])
 
-    with col1:
-        st.dataframe(m11.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig11 = px.bar(m11, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="Retro | Hits Chart")
-        st.plotly_chart(fig11, use_container_width=True)
+        with col1:
+            st.dataframe(m7.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig7 = px.bar(m7, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="FutDates | Hits Chart")
+            st.plotly_chart(fig7, use_container_width=True)
 
-with o12:
-    col1, col2 = st.columns([1,3.33])
+    with o8:
+        col1, col2 = st.columns([1,3.33])
 
-    with col1:
-        st.dataframe(m12.style.background_gradient(cmap='Blues'))
-    with col2:
-        fig12 = px.bar(m12, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
-                 title="Sq9 | Hits Chart")
-        st.plotly_chart(fig12, use_container_width=True)
+        with col1:
+            st.dataframe(m8.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig8 = px.bar(m8, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="Mult | Hits Chart")
+            st.plotly_chart(fig8, use_container_width=True)
 
+    with o9:
+        col1, col2 = st.columns([1,3.33])
+
+        with col1:
+            st.dataframe(m9.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig9 = px.bar(m9, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="Natal | Hits Chart")
+            st.plotly_chart(fig9, use_container_width=True)
+
+    with o10:
+        col1, col2 = st.columns([1,3.33])
+
+        with col1:
+            st.dataframe(m10.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig10 = px.bar(m10, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="PriceTime | Hits Chart")
+            st.plotly_chart(fig10, use_container_width=True)
+
+    with o11:
+        col1, col2 = st.columns([1,2.8])
+
+        with col1:
+            st.dataframe(m11.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig11 = px.bar(m11, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="Retro | Hits Chart")
+            st.plotly_chart(fig11, use_container_width=True)
+
+    with o12:
+        col1, col2 = st.columns([1,3.33])
+
+        with col1:
+            st.dataframe(m12.style.background_gradient(cmap='Blues'))
+        with col2:
+            fig12 = px.bar(m12, x='Date', y='Hit', color='Hit', color_continuous_scale=px.colors.sequential.Blues,
+                    title="Sq9 | Hits Chart")
+            st.plotly_chart(fig12, use_container_width=True)
+
+    authenticator.logout("Logout", "Main")
