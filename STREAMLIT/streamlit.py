@@ -7,6 +7,7 @@ import numpy as np
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
+from PIL import Image
 import os
 
 # RECUP LA DATA
@@ -28,7 +29,11 @@ t = pd.to_datetime(t)
 today = datetime.strftime(datetime.now(), "%d/%m/%Y")
 
 st.set_page_config(page_title="ASTROTOOL")
-st.markdown('**ASTROTOOL**')
+
+logo = Image.open('logo.png')
+st.image(logo)
+
+#st.markdown('**ASTROTOOL**')
 
 # ONGLETS METHODS
 
