@@ -31,10 +31,10 @@ t = pd.to_datetime(t)
 today = datetime.strftime(datetime.now(), "%d/%m/%Y")
 
 # LOGO
-st.set_page_config(page_title="ASTROTOOL")
+st.set_page_config(page_title="ASTROTOOL", layout="wide")
 logo = Image.open(r'logo.png')
 
-col1, col2, col3 = st.columns([5, 5, 2])
+col1, col2, col3 = st.columns([8, 7, 2])
 
 with col1:
     st.write(' ')
@@ -45,7 +45,7 @@ with col2:
 with col3:
     st.write(' ')
 
-# --- USER AUTHENTIFICATION ---# --- USER AUTHENTIFICATION ---
+# --- USER AUTHENTIFICATION ---
 
 users = db.fetch_all_users()
 
@@ -63,6 +63,8 @@ if authentication_status == False:
 
 if authentication_status == None:
     st.warning("Please enter your username and password")
+
+# --- DASHBOARD ---
 
 if authentication_status:
 
@@ -106,50 +108,38 @@ if authentication_status:
 
         with h1:
 
-            col0,col00 = st.columns([10,0.1])
+            col0,col00 = st.columns([6,4])
             with col0:
                 st.dataframe(hm.style.background_gradient(cmap='Blues'))
-
-            st.markdown("**Aspects TrTr & TrNa**")
-            col1, col2 = st.columns([1,1])
-            with col1:
+            with col00:
+                st.markdown("**Aspects TrTr & TrNa**")
                 st.dataframe(mn1.style.background_gradient(cmap='Blues'))
-
-            with col2:
                 st.dataframe(mn2.style.background_gradient(cmap='Blues'))
-
 
         with h2:
 
-            col0,col00 = st.columns([10,0.1])
+            col0,col00 = st.columns([6.618,3])
             with col0:
                 st.dataframe(gm.style.background_gradient(cmap='Blues'))
-
-            st.markdown("**Aspects TrTr & TrNa**")
-            col1, col2 = st.columns([1,1])
-            with col1:
+            with col00:
+                st.markdown("**Aspects TrTr & TrNa**")
                 st.dataframe(mn3.style.background_gradient(cmap='Blues'))
-
-            with col2:
                 st.dataframe(mn4.style.background_gradient(cmap='Blues'))
         
         with h3:
 
-            st.markdown("**Retro**")
-            col5, col9 = st.columns([12,0.2])
-
+            col5, col9 = st.columns([6,4])
             with col5:
+                st.markdown("**Retro**")
                 st.dataframe(mn6.style.background_gradient(cmap='Blues'))
+            with col9:
+                st.markdown("**Declination/Latitude**")
+                st.dataframe(mn5.style.background_gradient(cmap='Blues'))
 
             st.markdown("**Moon/Node/Dec/Lat**")
             col7, col8 = st.columns([12,0.2])
             with col7:
                 st.dataframe(mn7.style.background_gradient(cmap='Blues'))
-
-            st.markdown("**Declination/Latitude**")
-            col6, col10= st.columns([1,1])
-            with col6:
-                st.dataframe(mn5.style.background_gradient(cmap='Blues'))
 
     with chart:
         fig0 = px.bar(m, x='Date', y='EP', color='EP', color_continuous_scale=px.colors.sequential.Cividis,
@@ -279,11 +269,10 @@ if authentication_status:
                         title="Sq9 | Hits Chart")
                 st.plotly_chart(fig12, use_container_width=True)
 
-    col1, col2, col3 = st.columns([5, 5, 2])
+    col1, col2, col3 = st.columns([8, 7, 2])
     with col1:
         st.write(' ')
     with col2:
         authenticator.logout("Logout", "main")
     with col3:
         st.write(' ')
-    
