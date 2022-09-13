@@ -104,7 +104,7 @@ if authentication_status:
 
     with main:
 
-        h1,h2,h3=st.tabs(["Helio", "Geo", "Tools"])
+        h1,h2,h3,h4=st.tabs(["Helio", "Geo", "Tools", "Sq9"])
 
         with h1:
 
@@ -140,6 +140,17 @@ if authentication_status:
             col7, col8 = st.columns([12,0.2])
             with col7:
                 st.dataframe(mn7.style.background_gradient(cmap='Blues'))
+
+        with h4:
+
+            col0,col00 = st.columns([1,1])
+            sq1 = Image.open(r'SQ1.png')
+            sq2 = Image.open(r'SQ2.png')
+            with col0:
+                st.image(sq1)
+            with col00:
+                st.image(sq2)
+                st.markdown("Here is an aerial view of the **Khufru pyramid in Egypt**, some claim that the ancient builders bequeathed these pyramids to us as an *astro-calculator*, which W.D Gann calls the **Square of 9**. It has been discovered that each **45°** side row of this pyramid (*8 sides*) has a **small inclination**, was this intentional to reveal the importance of the **45° degree**? Or just an architectural coincidence...")
 
     with chart:
         fig0 = px.bar(m, x='Date', y='EP', color='EP', color_continuous_scale=px.colors.sequential.Cividis,
