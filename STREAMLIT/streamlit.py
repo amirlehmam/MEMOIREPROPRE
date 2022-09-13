@@ -66,9 +66,12 @@ if authentication_status == None:
 
 if authentication_status:
 
-    st.markdown(f"Welcome {names}!")
+    st.markdown(f"Welcome aboard {names}")
 
     m = fluchart.copy()
+
+    hm = helio_main.copy()
+    gm = geo_main.copy()
 
     m1 = NatSq.copy()
     m2 = Spi.copy()
@@ -95,9 +98,19 @@ if authentication_status:
 
     # ONGLETS
 
-    main,chart,Method = st.tabs(["Main", "Chart","Method"]) 
+    main,chart,Method = st.tabs(["Main", "Chart","Method"])
 
     with main:
+
+        st.markdown("**Helio Main Table**")
+        col0,col00 = st.columns([10,0.1])
+        with col0:
+            st.dataframe(hm.style.background_gradient(cmap='Blues'))
+
+        st.markdown("**Geo Main Table**")
+        col000,col0000 = st.columns([10,0.1])
+        with col000:
+            st.dataframe(gm.style.background_gradient(cmap='Blues'))
 
         st.markdown("**Helio Aspects TrTr & TrNa**")
         col1, col2 = st.columns([1,1])
