@@ -17,7 +17,7 @@ import os
 current_path = os.getcwd()
 
 # Get the path to the csv file folder - in this case the 'data' file
-csv_path = os.path.join(current_path, 'data//test')
+csv_path = os.path.join(current_path, 'data')
 
 # A EXPLIQUER ICI
 for file in os.listdir(csv_path):
@@ -66,7 +66,7 @@ if authentication_status == None:
 
 if authentication_status:
 
-    st.markdown(f"Welcome aboard {names}")
+    st.markdown(f"Welcome aboard {names}, enjoy our Alpha Version!")
 
     m = fluchart.copy()
 
@@ -102,51 +102,57 @@ if authentication_status:
 
     with main:
 
-        st.markdown("**Helio Main Table**")
-        col0,col00 = st.columns([10,0.1])
-        with col0:
-            st.dataframe(hm.style.background_gradient(cmap='Blues'))
+        h1,h2,h3=st.tabs(["Helio", "Geo", "Tools"])
 
-        st.markdown("**Geo Main Table**")
-        col000,col0000 = st.columns([10,0.1])
-        with col000:
-            st.dataframe(gm.style.background_gradient(cmap='Blues'))
+        with h1:
 
-        st.markdown("**Helio Aspects TrTr & TrNa**")
-        col1, col2 = st.columns([1,1])
+            col0,col00 = st.columns([10,0.1])
+            with col0:
+                st.dataframe(hm.style.background_gradient(cmap='Blues'))
 
-        with col1:
-            st.dataframe(mn1.style.background_gradient(cmap='Blues'))
+            st.markdown("**Aspects TrTr & TrNa**")
+            col1, col2 = st.columns([1,1])
+            with col1:
+                st.dataframe(mn1.style.background_gradient(cmap='Blues'))
 
-        with col2:
-            st.dataframe(mn2.style.background_gradient(cmap='Blues'))
+            with col2:
+                st.dataframe(mn2.style.background_gradient(cmap='Blues'))
 
-        st.markdown("**Geo Aspects TrTr & TrNa**")
-        col3, col4 = st.columns([1,1])
 
-        with col3:
-            st.dataframe(mn3.style.background_gradient(cmap='Blues'))
-        with col4:
-            st.dataframe(mn4.style.background_gradient(cmap='Blues'))
+        with h2:
 
-        st.markdown("**Retro Aspects**")
-        col5, col9 = st.columns([12,0.2])
+            col0,col00 = st.columns([10,0.1])
+            with col0:
+                st.dataframe(gm.style.background_gradient(cmap='Blues'))
 
-        with col5:
-            st.dataframe(mn6.style.background_gradient(cmap='Blues'))
+            st.markdown("**Aspects TrTr & TrNa**")
+            col1, col2 = st.columns([1,1])
+            with col1:
+                st.dataframe(mn3.style.background_gradient(cmap='Blues'))
 
-        st.markdown("**Tools**")
-        col7, col8 = st.columns([12,0.2])
-        with col7:
-            st.dataframe(mn7.style.background_gradient(cmap='Blues'))
+            with col2:
+                st.dataframe(mn4.style.background_gradient(cmap='Blues'))
+        
+        with h3:
 
-        st.markdown("**Declination/Latitude**")
-        col6, col10= st.columns([1,1])
-        with col6:
-            st.dataframe(mn5.style.background_gradient(cmap='Blues'))
+            st.markdown("**Retro**")
+            col5, col9 = st.columns([12,0.2])
+
+            with col5:
+                st.dataframe(mn6.style.background_gradient(cmap='Blues'))
+
+            st.markdown("**Moon/Node/Dec/Lat**")
+            col7, col8 = st.columns([12,0.2])
+            with col7:
+                st.dataframe(mn7.style.background_gradient(cmap='Blues'))
+
+            st.markdown("**Declination/Latitude**")
+            col6, col10= st.columns([1,1])
+            with col6:
+                st.dataframe(mn5.style.background_gradient(cmap='Blues'))
 
     with chart:
-        fig0 = px.bar(m, x='Date', y='EP', color='EP', color_continuous_scale=px.colors.sequential.Cividis, title="Energy Points (EP) Chart for next 3 months",
+        fig0 = px.bar(m, x='Date', y='EP', color='EP', color_continuous_scale=px.colors.sequential.Cividis,
                 height=500, width=3200)
         st.plotly_chart(fig0, use_container_width=True)
 
@@ -273,4 +279,11 @@ if authentication_status:
                         title="Sq9 | Hits Chart")
                 st.plotly_chart(fig12, use_container_width=True)
 
-    authenticator.logout("Logout", "main")
+    col1, col2, col3 = st.columns([5, 5, 2])
+    with col1:
+        st.write(' ')
+    with col2:
+        authenticator.logout("Logout", "main")
+    with col3:
+        st.write(' ')
+    
