@@ -53,7 +53,7 @@ x_g = x_g.drop(['Pair'], axis = 1)
 x_con = pd.concat([x_h, x_g])
 
 x_con['Date'] = pd.to_datetime(x_con['Date'])  
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (x_con['Date'] > start_date) & (x_con['Date'] <= end_date)
@@ -63,7 +63,5 @@ x_hits = x_hits.sort_values(by=['Date'], ascending = True)
 x_hi = x_con.loc[mask]
 x_hi = x_hi.sort_values(by=['Date'], ascending = True)
 
-print(x_hi.head(5))
-
-fig = px.bar(x_hi, x='Date', y='Points')
-fig.show()
+dz_trna = x_hi.head(30)
+dz_trna.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','TrNa.csv'), index= False)

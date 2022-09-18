@@ -506,7 +506,7 @@ gfd.drop(gfd.tail(1).index,inplace=True)
 
 gfd['Date'] = pd.to_datetime(gfd['Date'])
 
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (gfd['Date'] > start_date) & (gfd['Date'] <= end_date)
@@ -521,4 +521,6 @@ gfdE
 lathit = lathit.copy()
 
 ex = pd.concat([gfdE, lathit])
-print(ex.head(5))
+dz_FD = ex.head(30)
+dz_FD.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','FutureDate.csv'), index= False)
+dz_FD

@@ -90,7 +90,6 @@ for planets in fbb1.columns[1:]:
             fbb1[planets].iloc[num] = " "
 
 adpod = fbb1.copy()
-
 gdeg = adpod[1:].unstack().value_counts(ascending=True)
 
 gdeg = pd.DataFrame(gdeg, columns=['Hit'])
@@ -105,11 +104,12 @@ gdeg.drop(gdeg.head(1).index,inplace=True) # drop first n rows
 
 gdeg['Date'] = gdeg['Date'].apply(pd.to_datetime)
 
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (gdeg['Date'] > start_date) & (gdeg['Date'] <= end_date)
 gdeg = gdeg.loc[mask]
 
 fib_hits = gdeg.sort_values(by=['Date'], ascending=True)
-print(fib_hits.head(5))
+dz_Fib = fib_hits.head(30)
+dz_Fib.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','Fib.csv'), index= False)

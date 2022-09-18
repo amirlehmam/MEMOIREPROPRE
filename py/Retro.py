@@ -46,7 +46,7 @@ r_h = r_h.drop(['Merc', 'Ven', 'Mar', 'Jup', 'Sat', 'Ura', 'Nep', 'Plu'], axis=1
 
 r_h['Date'] = pd.to_datetime(r_h['Date'])  
 
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (r_h['Date'] > start_date) & (r_h['Date'] <= end_date)
@@ -54,4 +54,5 @@ mask = (r_h['Date'] > start_date) & (r_h['Date'] <= end_date)
 rh_hits = r_h.loc[mask]
 rh_hits = rh_hits.sort_values(by=['Date'], ascending = True)
 
-print(rh_hits.head(5))
+dz_Retro = rh_hits.head(30)
+dz_Retro.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','Retro.csv'), index= False)

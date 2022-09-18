@@ -60,11 +60,12 @@ dayyy = datetime.strftime(datetime.now(), "%Y/%m/%d")
 t = pd.to_datetime(dayyy)
 t = pd.to_datetime(t)
 
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (dx['Date'] > start_date) & (dx['Date'] <= end_date)
 Spiral_hits = dx.loc[mask]
 Spiral_hits = Spiral_hits.sort_values(by=['Date'])
 
-print(Spiral_hits.head(5))
+dz_Spi = Spiral_hits.head(30)
+dz_Spi.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','Spi.csv'), index= False)

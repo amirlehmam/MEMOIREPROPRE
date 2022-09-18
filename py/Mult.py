@@ -141,7 +141,7 @@ good = good.rename_axis('E', axis=1)
 good.columns = good.columns.str.replace('index', 'Date')
 good = good.rename_axis(None, axis=1)
 
-start_date = tx  - timedelta(days = 5)
+start_date = tx  - timedelta(days = 1)
 end_date = tx + timedelta(days = 120)
 
 good['Date'] = pd.to_datetime(good['Date'])
@@ -150,6 +150,6 @@ mask = (good['Date'] > start_date) & (good['Date'] <= end_date)
 good = good.loc[mask]
 
 # addp_hits.head(50)
-
 mult_hits = good.sort_values(by=['Date'], ascending=True)
-print(mult_hits.head(5))
+dz_MULT = mult_hits.head(30)
+dz_MULT.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','Mult.csv'), index= False)

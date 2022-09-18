@@ -41,9 +41,7 @@ from datetime import timedelta
 ## 1. Code
 
 kek_p = helio.copy()
-
 hexxx = helio[helio.Date == "31/10/2008"]
-
 pa = priceadd.copy()
 
 outp = pd.DataFrame()
@@ -61,7 +59,7 @@ for col in pa.columns:
                 row_index = dates_list.index(date)
                 outp[col][row_index] = helio[col][row]
 
-output = outp.copy()                
+output = outp.copy()
 
 print(outp)
 # PA_1000
@@ -374,4 +372,5 @@ good = good.loc[mask]
 # addp_hits.head(50)
 
 good = good.sort_values(by=['Date'], ascending=True)
-print(good.head(5))
+dz_ADDP = good.head(30)
+dz_ADDP.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','addPrice.csv'), index= False)

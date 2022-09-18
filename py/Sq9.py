@@ -62,7 +62,7 @@ dzea2 = dzea2.sort_values(by=['Date'], ascending=True)
 
 dzea2['Date'] = dzea2['Date'].apply(pd.to_datetime)
 
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (dzea2['Date'] > start_date) & (dzea2['Date'] <= end_date)
@@ -71,8 +71,5 @@ dzea2 = dzea2.loc[mask]
 # addp_hits.head(50)
 
 ggggg = dzea2.sort_values(by=['Date'], ascending=True)
-
-print(ggggg.head(10))
-
-fig = px.bar(ggggg, x='Date', y='Hit')
-fig.show()
+dz_Sq9 = ggggg.head(30)
+dz_Sq9.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','Sq9.csv'), index= False)

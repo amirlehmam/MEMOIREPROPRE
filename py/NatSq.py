@@ -55,14 +55,12 @@ dx = dx.rename_axis(None, axis=1)
 
 dx['Date'] = pd.to_datetime(dx['Date'])  
 
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (dx['Date'] > start_date) & (dx['Date'] <= end_date)
 NatSq_hits = dx.loc[mask]
 NatSq_hits = NatSq_hits.sort_values(by=['Date'])
 
-print(NatSq_hits.head(5))
-
-fig = px.bar(NatSq_hits, x='Date', y='Hit')
-fig.show()
+dz_Nat = NatSq_hits.head(30)
+dz_Nat.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','NatSq.csv'), index= False)

@@ -48,7 +48,7 @@ b_con = pd.concat([b_h, b_g])
 
 b_con['Date'] = pd.to_datetime(b_con['Date'])  
 
-start_date = t  - timedelta(days = 5)
+start_date = t  - timedelta(days = 1)
 end_date = t + timedelta(days = 120)
 
 mask = (b_con['Date'] > start_date) & (b_con['Date'] <= end_date)
@@ -56,7 +56,5 @@ b_hits = b_con.loc[mask]
 b_hits = b_hits.sort_values(by=['Date'], ascending = True)
 b_trtr = b_hits
 
-print(b_trtr.head(5))
-
-fig = px.bar(b_trtr, x='Date', y='Points')
-fig.show()
+dz_TRTR = b_trtr.head(30)
+dz_TRTR.to_csv(os.path.join('STREAMLIT//streamlit//streamlit//data','TrTr.csv'), index= False)
