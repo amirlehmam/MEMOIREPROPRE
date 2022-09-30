@@ -1,5 +1,0 @@
-deta.sh astrotool database
-
-Key Name: 5s019
-Key Description: Project Key: 5s019
-Project Key: a0682mg1_xJhrfdvkPyhYjNjEvu33YYKCwkVuvFxa
